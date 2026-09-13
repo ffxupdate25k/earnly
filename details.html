@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Task Details</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+<h2 id="title">Loading...</h2>
+
+<p id="desc"></p>
+
+<div id="refBox"></div>
+
+<a id="taskLink" target="_blank">
+<button>Open Task Link</button>
+</a>
+
+<br><br>
+
+<div id="proofArea"></div>
+
+<button onclick="submitProof()">Submit Proof</button>
+
+</div>
+
+</div>
+
+<script src="js/task-details.js"></script>
+
+</body>
+</html>
