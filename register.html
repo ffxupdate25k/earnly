@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earnly • Register</title>
 
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">🟡 EARNLY</div>
+
+  <div class="card">
+
+    <h2>Create Account</h2>
+
+    <input type="text" id="fullname" placeholder="Full Name">
+
+    <input type="text" id="username" placeholder="Username">
+
+    <input type="email" id="email" placeholder="Email Address">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <select id="currency">
+      <option value="">Choose Currency</option>
+      <option value="NGN">🇳🇬 NGN</option>
+      <option value="USD">🇺🇸 USD</option>
+      <option value="TON">💎 TON</option>
+      <option value="BNB">🟡 BNB</option>
+    </select>
+
+    <input type="text" id="referral" placeholder="Referral Code (Optional)">
+
+    <button onclick="registerUser()">Create Account</button>
+
+    <p>
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+
+  </div>
+
+</div>
+
+<script src="js/register.js"></script>
+
+</body>
+      </html>
