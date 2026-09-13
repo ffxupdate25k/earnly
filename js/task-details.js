@@ -1,107 +1,106 @@
-const user=JSON.parse(localStorage.getItem("earnly_user"));
+const user = JSON.parse(localStorage.getItem("earnly_user"));
 
-const taskId=localStorage.getItem("current_task");
+if (!user) location.href = "login.html";
 
-let task={};
+const taskId = localStorage.getItem("current_task");
+let task = {};
 
 loadTask();
 
-async function loadTask(){
+async function loadTask() {
+  const { data, error } = await db
+    .from("tasks")
+    .select("*")
+    .eq("id", taskId)
+    .single();
 
-const {data}=await db
-.from("tasks")
-.select("*")
-.eq("id",taskId)
-.single();
+  if (error) {
+    alert("Task not found");
+    location.href = "tasks.html";
+    return;
+  }
 
-task=data;
+  task = data;
 
-title.innerText=data.title;
+  document.getElementById("title").innerText = task.title;
+  document.getElementById("desc").innerText = task.description;
+  document.getElementById("taskLink").href = task.link;
 
-desc.innerText=data.description;
+  if (task.referral_code) {
+    document.getElementById("refBox").innerHTML = `
+      <p><b>Referral Code</b></p>
+      <input id="refCode" value="${task.referral_code}" readonly>
+      <button onclick="copyCode()">Copy Code</button>
+      <br><br>
+    `;
+  }
 
-taskLink.href=data.link;
-
-if(data.referral_code){
-
-refBox.innerHTML=`
-<p><b>Referral Code</b></p>
-
-<input value="${data.referral_code}" readonly>
-
-<button onclick="copyCode()">Copy Code</button>
-`;
-
+  if (task.proof_type === "Screenshot") {
+    document.getElementById("proofArea").innerHTML =
+      '<input type="file" id="proof" accept="image/*">';
+  } else {
+    document.getElementById("proofArea").innerHTML =
+      `<input id="proof" placeholder="Enter ${task.proof_type}">`;
+  }
 }
 
-if(data.proof_type==="Screenshot"){
-
-proofArea.innerHTML=`
-<input type="file" id="proof">
-`;
-
+function copyCode() {
+  navigator.clipboard.writeText(task.referral_code);
+  alert("Referral code copied!");
 }
 
-if(data.proof_type==="Telegram ID"){
+async function submitProof() {
 
-proofArea.innerHTML=`
-<input id="proof" placeholder="Enter Telegram ID">
-`;
+  let proof = "";
 
-}
+  if (task.proof_type === "Screenshot") {
 
-if(data.proof_type==="Username"){
+    const file = document.getElementById("proof").files[0];
 
-proofArea.innerHTML=`
-<input id="proof" placeholder="Enter Username">
-`;
+    if (!file) {
+      alert("Please select a screenshot");
+      return;
+    }
 
-}
+    const filename = Date.now() + "_" + file.name;
 
-if(data.proof_type==="Phone"){
+    const { error: uploadError } = await db.storage
+      .from("proofs")
+      .upload(filename, file);
 
-proofArea.innerHTML=`
-<input id="proof" placeholder="Enter Phone Number">
-`;
+    if (uploadError) {
+      alert(uploadError.message);
+      return;
+    }
 
-}
+    const { data } = db.storage
+      .from("proofs")
+      .getPublicUrl(filename);
 
-}
+    proof = data.publicUrl;
 
-function copyCode(){
+  } else {
 
-navigator.clipboard.writeText(task.referral_code);
+    proof = document.getElementById("proof").value.trim();
 
-alert("Copied");
+    if (!proof) {
+      alert("Please enter your proof");
+      return;
+    }
+  }
 
-}
+  const { error } = await db.from("submissions").insert({
+    user_id: user.id,
+    task_id: Number(taskId),
+    proof: proof,
+    status: "pending"
+  });
 
-async function submitProof(){
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-let value=document.getElementById("proof").value;
-
-const {error}=await db.from("submissions").insert({
-
-user_id:user.id,
-
-task_id:Number(taskId),
-
-proof:value,
-
-status:"pending"
-
-});
-
-if(error){
-
-alert(error.message);
-
-return;
-
-}
-
-alert("Proof submitted successfully!");
-
-location.href="tasks.html";
-
+  alert("Task submitted successfully!");
+  location.href = "tasks.html";
   }
