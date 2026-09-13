@@ -168,3 +168,19 @@ color:#D4AF37!important;
 body{
 padding-bottom:80px;
   }
+textarea{
+width:100%;
+padding:14px;
+margin:8px 0;
+background:#111;
+color:#fff;
+border:1px solid #333;
+border-radius:12px;
+min-height:120px;
+}
+
+.danger{
+background:#D32F2F;
+color:#fff;
+margin-top:8px;
+  }
