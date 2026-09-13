@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Withdraw • Earnly</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo">💸 Withdrawal</div>
+
+<div class="card">
+  <p>Available Balance</p>
+  <h1 id="balance">0</h1>
+</div>
+
+<div class="card">
+
+  <h3 id="walletTitle">Wallet</h3>
+
+  <div id="walletForm"></div>
+
+  <input id="amount" type="number" placeholder="Withdrawal Amount">
+
+  <button onclick="applyWithdraw()">
+    Apply Withdrawal
+  </button>
+
+</div>
+
+<div id="statusBox"></div>
+
+</div>
+
+<script src="js/withdrawal.js"></script>
+
+</body>
+</html>
