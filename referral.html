@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earnly Referral</title>
 
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo">🟡 EARNLY</div>
+
+<div class="card">
+
+<h2>Invite & Earn</h2>
+
+<p>Earn 10% of every approved task your referrals complete.</p>
+
+<input id="myCode" readonly>
+
+<button onclick="copyCode()">Copy Referral Code</button>
+
+</div>
+
+<div class="card">
+
+<h3>Total Referral Earnings</h3>
+
+<h1 id="earn">0</h1>
+
+</div>
+
+</div>
+
+<script src="js/referral.js"></script>
+
+</body>
+</html>
