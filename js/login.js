@@ -1,41 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earnly Login</title>
+async function loginUser(){
 
-  <link rel="stylesheet" href="css/style.css">
+const email=document.getElementById("email").value.trim().toLowerCase();
+const password=document.getElementById("password").value;
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/config.js"></script>
-</head>
-<body>
+if(!email || !password){
+alert("Enter email and password");
+return;
+}
 
-<div class="container">
+const {data,error}=await db
+.from("users")
+.select("*")
+.eq("email",email)
+.eq("password",password)
+.single();
 
-  <div class="logo">🟡 EARNLY</div>
+if(error || !data){
+alert("Invalid login details");
+return;
+}
 
-  <div class="card">
+localStorage.setItem("earnly_user",JSON.stringify(data));
 
-    <h2>Welcome Back</h2>
+window.location="dashboard.html";
 
-    <input type="email" id="email" placeholder="Email Address">
-
-    <input type="password" id="password" placeholder="Password">
-
-    <button onclick="loginUser()">Login</button>
-
-    <p>
-      Don't have an account?
-      <a href="register.html">Register</a>
-    </p>
-
-  </div>
-
-</div>
-
-<script src="js/login.js"></script>
-
-</body>
-</html>
+}
