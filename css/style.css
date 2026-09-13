@@ -21,3 +21,17 @@ padding:12px 0;
 border-bottom:1px solid #2a2a2a;
 color:#ddd;
 }
+select{
+appearance:none;
+}
+
+input:focus,
+select:focus{
+outline:none;
+border:1px solid #D4AF37;
+}
+
+h2{
+text-align:center;
+margin-bottom:18px;
+}
