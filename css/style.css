@@ -1,37 +1,89 @@
-.hero h1{
-font-size:28px;
-margin-bottom:10px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-.hero p{
-color:#ccc;
-line-height:1.6;
-margin-bottom:18px;
-text-align:left;
+body{
+  background:#0B0B0B;
+  color:#fff;
 }
 
-.outline{
-background:transparent;
-color:#D4AF37;
-border:1px solid #D4AF37;
+.container{
+  width:92%;
+  max-width:420px;
+  margin:auto;
+  padding:24px 0;
 }
 
-.feature{
-padding:12px 0;
-border-bottom:1px solid #2a2a2a;
-color:#ddd;
+.logo{
+  text-align:center;
+  font-size:34px;
+  font-weight:bold;
+  color:#D4AF37;
+  margin:25px 0;
 }
-select{
-appearance:none;
+
+.card{
+  background:#171717;
+  border:1px solid #2D2D2D;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+h1,h2,h3{
+  color:#D4AF37;
+  margin-bottom:12px;
+}
+
+p{
+  color:#CFCFCF;
+  line-height:1.5;
+}
+
+input,select{
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  background:#111;
+  color:#fff;
+  border:1px solid #333;
+  border-radius:12px;
+  font-size:15px;
 }
 
 input:focus,
 select:focus{
-outline:none;
-border:1px solid #D4AF37;
+  outline:none;
+  border-color:#D4AF37;
 }
 
-h2{
-text-align:center;
-margin-bottom:18px;
+button{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  background:#D4AF37;
+  color:#000;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.outline{
+  background:transparent;
+  color:#D4AF37;
+  border:1px solid #D4AF37;
+}
+
+.feature{
+  padding:12px 0;
+  border-bottom:1px solid #2A2A2A;
+}
+
+a{
+  color:#D4AF37;
+  text-decoration:none;
 }
