@@ -87,3 +87,84 @@ a{
   color:#D4AF37;
   text-decoration:none;
 }
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.coin{
+background:#D4AF37;
+color:#000;
+padding:8px 14px;
+border-radius:20px;
+font-weight:bold;
+}
+
+.balance-card{
+background:linear-gradient(135deg,#D4AF37,#9C7A12);
+padding:22px;
+border-radius:20px;
+color:#000;
+margin-bottom:20px;
+}
+
+.balance-card h1{
+font-size:34px;
+margin-top:8px;
+color:#000;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:18px;
+}
+
+.menu{
+background:#171717;
+border:1px solid #2d2d2d;
+border-radius:15px;
+padding:20px;
+text-align:center;
+color:#fff;
+font-weight:bold;
+}
+
+.support{
+background:#111;
+border:1px solid #D4AF37;
+color:#D4AF37;
+padding:15px;
+border-radius:14px;
+text-align:center;
+font-weight:bold;
+}
+
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+border-top:1px solid #333;
+}
+
+.bottom div{
+text-align:center;
+font-size:13px;
+color:#aaa;
+}
+
+.active{
+color:#D4AF37!important;
+}
+
+body{
+padding-bottom:80px;
+  }
