@@ -1,52 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Earnly Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earnly Dashboard</title>
 
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
 </head>
 <body>
 
 <div class="container">
 
-<div class="top">
-  <div>
-    <small>Welcome Back</small>
-    <h2 id="name">User</h2>
+  <div class="top">
+    <div>
+      <small>Welcome Back</small>
+      <h2 id="name">User</h2>
+    </div>
+
+    <div class="coin" id="currency">NGN</div>
   </div>
-  <div class="coin" id="currency">NGN</div>
-</div>
 
-<div class="balance-card">
-  <small>Available Balance</small>
-  <h1 id="balance">0.00</h1>
-</div>
+  <div class="balance-card">
+    <small>Available Balance</small>
+    <h1 id="balance">₦0.00</h1>
+  </div>
 
-<div class="grid">
-  <a href="#"><div class="menu">👥<br>Referral</div></a>
-  <a href="#"><div class="menu">📋<br>Tasks</div></a>
-  <a href="#"><div class="menu">💸<br>Withdrawal</div></a>
-  <a href="#"><div class="menu">📜<br>History</div></a>
-</div>
+  <div class="grid">
 
-<a href="#"><div class="support">💬 Telegram Support</div></a>
+    <a href="referral.html">
+      <div class="menu">👥<br>Referral</div>
+    </a>
 
-<div id="adminBtn" style="display:none;margin-top:15px;">
-<button>🛠 Admin Panel</button>
-</div>
+    <a href="tasks.html">
+      <div class="menu">📋<br>Tasks</div>
+    </a>
+
+    <a href="withdrawal.html">
+      <div class="menu">💸<br>Withdrawal</div>
+    </a>
+
+    <a href="history.html">
+      <div class="menu">📜<br>History</div>
+    </a>
+
+  </div>
+
+  <a href="support.html">
+    <div class="support">
+      💬 Telegram Support
+    </div>
+  </a>
+
+  <div id="adminBtn" style="display:none;margin-top:18px;">
+    <button onclick="location.href='admin.html'">
+      🛠 Admin Panel
+    </button>
+  </div>
 
 </div>
 
 <div class="bottom">
-  <div class="active">🏠<br>Home</div>
-  <div>📋<br>Tasks</div>
-  <div>💸<br>Withdraw</div>
-  <div>👤<br>Profile</div>
+
+  <div class="active">
+    🏠<br>Home
+  </div>
+
+  <div onclick="location.href='tasks.html'">
+    📋<br>Tasks
+  </div>
+
+  <div onclick="location.href='withdrawal.html'">
+    💸<br>Withdraw
+  </div>
+
+  <div onclick="location.href='profile.html'">
+    👤<br>Profile
+  </div>
+
 </div>
 
 <script src="js/dashboard.js"></script>
